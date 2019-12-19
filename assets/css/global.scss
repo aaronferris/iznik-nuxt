@@ -1,6 +1,6 @@
 @import 'color-vars';
 
-// TODO MINOR Would be nice to use bootstrap mixins for breakpoints.  Also in NewsReply.
+// TODO use bootstrap mixins for breakpoints.  Also in NewsReply.
 $bootstrap-xs: 576px;
 $bootstrap-sm: 768px;
 $bootstrap-md: 992px;
@@ -9,23 +9,23 @@ $bootstrap-lg: 1200px;
 .bg-success {
   background-color: $colour-success-bg !important;
   color: $colour-success-fg !important;
-}
 
-.card-header.bg-success {
-  border-bottom: 1px solid $colour-success-bg;
+  &.card-header {
+    border-bottom: 1px solid $colour-success-bg;
+  }
 }
 
 .bg-info {
   background-color: $colour-info-bg !important;
   color: $colour-info-fg !important;
+
+  &.card-header {
+    border-bottom: 1px solid $colour-info-bg;
+  }
 }
 
 .border-info {
   border-color: $colour-info-bg !important;
-}
-
-.card-header.bg-info {
-  border-bottom: 1px solid $colour-info-bg;
 }
 
 .btn-primary {
@@ -88,11 +88,12 @@ $bootstrap-lg: 1200px;
   color: $color-green--dark;
   text-decoration: none;
   padding: 10px 30px;
-}
 
-.button--green:hover {
-  color: $color-white;
-  background-color: $color-green--dark;
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: $color-green--dark;
+  }
 }
 
 .button--grey {
@@ -103,11 +104,12 @@ $bootstrap-lg: 1200px;
   text-decoration: none;
   padding: 10px 30px;
   margin-left: 15px;
-}
 
-.button--grey:hover {
-  color: $color-white;
-  background-color: $color-blue--dark;
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: $color-blue--dark;
+  }
 }
 
 .text-success {
@@ -153,6 +155,8 @@ body {
 .showmod {
   border-radius: 50%;
   position: absolute;
+  top: 20px;
+  left: 33px;
   background-color: $color-white;
   width: 24px;
   height: 24px;
@@ -160,9 +164,6 @@ body {
   padding-top: 4px;
   padding-right: 2px;
   border: 1px solid $color-green--darker;
-
-  top: 20px;
-  left: 33px;
 
   // TODO DESIGN Use bootstrap breakpoints
   @media (min-width: $bootstrap-sm) {
@@ -211,27 +212,27 @@ body {
 
 // Brought in from style.css
 button {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 .clickme {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .btn-group-xs > .btn, .btn-xs {
-    padding  : .25rem .4rem;
-    font-size  : .875rem;
-    line-height  : .5;
-    border-radius : .2rem;
+  padding: .25rem .4rem;
+  font-size: .875rem;
+  line-height: .5;
+  border-radius: .2rem;
 }
 
 .nodecor {
-    text-decoration: none !important;
-    color: $color-black !important;
+  text-decoration: none !important;
+  color: $color-black !important;
 }
 
 .prewrap {
-    white-space: pre-wrap !important;
+  white-space: pre-wrap !important;
 }
 
 .preline {
@@ -239,28 +240,28 @@ button {
 }
 
 .fa-bh {
-    font-size: 100px;
+  font-size: 100px;
 }
 
-.decornone,
-.decornone:hover{
+.decornone {
+  &:hover,
+  &:focus {
     text-decoration: none;
+  }
 }
 
 /* TODO DESIGN I tried adding "appear" transitions, e.g. for elements in chitchat, or messages.  But they then don't
     show the computed emessage property.  Don't know why */
 .fade-enter-active, .fade-leave-active {
-    transition: opacity 1s;
+  transition: opacity 1s;
 }
-.fade-enter, .fade-leave-to {
-    opacity: 0;
+
+.fade-enter, .fade-leave-to, .fadein-enter {
+  opacity: 0;
 }
 
 .fadein-enter-active {
-    transition: opacity 1s;
-}
-.fadein-enter {
-    opacity: 0;
+  transition: opacity 1s;
 }
 
 .navbar .dropdown-toggle:after {
@@ -324,5 +325,5 @@ legend {
 }
 
 .mx-datepicker-popup {
-  z-index: 2000 !important;;
+  z-index: 2000 !important;
 }
